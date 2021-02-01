@@ -6,8 +6,14 @@ using UnityEngine;
 public class PrismData
 {
     public string prismID;
+
+    //rotation speed
     public float speed;
-    //public Vector3 direction;
+
+    //public rotation direction;
+    public float x;
+    public float y;
+    public float z;
 
     //color
     public float r;

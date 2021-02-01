@@ -21,5 +21,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movement = new Vector3(hor, 0f, ver);
 
         rb.AddForce(movement * speed * Time.deltaTime, ForceMode.Impulse);
+
+
     }
 }

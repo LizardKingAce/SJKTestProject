@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5381971386300784616}
   - component: {fileID: 5381971386300784615}
   - component: {fileID: 5381971386300784614}
-  - component: {fileID: 5381971386300784613}
+  - component: {fileID: 1983105205}
+  - component: {fileID: 1983105210}
   m_Layer: 0
   m_Name: Red Prism
   m_TagString: Red Prism
@@ -94,7 +95,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5381971386300784613
+--- !u!114 &1983105205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5381971386300784612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65bd4e3717ab92e47bf62bbaf4533243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pc: {fileID: 1983105210}
+  secondsToWait: 5
+--- !u!114 &1983105210
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,7 +125,12 @@ MonoBehaviour:
   pd:
     prismID: 
     speed: 0
+    x: 0
+    y: 0
+    z: 0
     r: 0
     g: 0
     b: 0
     a: 0
+  moveInitial: 1
+  lifeToSub: 1

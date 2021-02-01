@@ -2,15 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JSONReader : MonoBehaviour
+public class PrismsController : MonoBehaviour
 {
     public TextAsset jsonFile;
     public PrismData pd = new PrismData();
 
+    //flips patrol direction movement
+    [HideInInspector]
+    public bool moveInitial = true;
+    [HideInInspector]
+    public int lifeToSub = 1;
+
     void Start()
     {
-        
-
         Prisms prismsInJson = JsonUtility.FromJson<Prisms>(jsonFile.text);
 
         foreach (PrismData prism in prismsInJson.prisms)
@@ -19,6 +23,9 @@ public class JSONReader : MonoBehaviour
             {
                 pd.prismID = prism.prismID;
                 pd.speed = prism.speed;
+                pd.x = prism.x;
+                pd.y = prism.y;
+                pd.z = prism.z;
                 pd.r = prism.r;
                 pd.g = prism.g;
                 pd.b = prism.b;
@@ -35,6 +42,9 @@ public class JSONReader : MonoBehaviour
             {
                 pd.prismID = prism.prismID;
                 pd.speed = prism.speed;
+                pd.x = prism.x;
+                pd.y = prism.y;
+                pd.z = prism.z;
                 pd.r = prism.r;
                 pd.g = prism.g;
                 pd.b = prism.b;
@@ -51,6 +61,9 @@ public class JSONReader : MonoBehaviour
             {
                 pd.prismID = prism.prismID;
                 pd.speed = prism.speed;
+                pd.x = prism.x;
+                pd.y = prism.y;
+                pd.z = prism.z;
                 pd.r = prism.r;
                 pd.g = prism.g;
                 pd.b = prism.b;
@@ -64,4 +77,42 @@ public class JSONReader : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().MinusLife(lifeToSub);
+        }
+    }
 }
+
+   /*     if (this.gameObject.CompareTag("Red Prism") && transform.position.x >= patrol1x)
+        {
+    moveInitial = false;
+}
+
+        if (this.gameObject.CompareTag("Red Prism") && transform.position.x <= patrol2x)
+        {
+    moveInitial = true;
+}
+
+        if (this.gameObject.CompareTag("Green Prism") && transform.position.z >= patrol1z)
+        {
+    moveInitial = false;
+}
+
+        if (this.gameObject.CompareTag("Green Prism") && transform.position.z <= patrol2z)
+        {
+    moveInitial = true;
+}
+
+        if (this.gameObject.CompareTag("Purple Prism") && transform.position.y >= patrol1y)
+        {
+    moveInitial = false;
+}
+
+        if (this.gameObject.CompareTag("Purple Prism") && transform.position.y <= patrol2y)
+        {
+    moveInitial = true;
+} */
