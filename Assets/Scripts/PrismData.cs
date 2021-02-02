@@ -7,8 +7,9 @@ public class PrismData
 {
     public string prismID;
 
-    //rotation speed
+    //movement speed
     public float speed;
+    public float rotationSpeed;
 
     //public rotation direction;
     public float x;

@@ -19,11 +19,6 @@ public class RedPrisms : MonoBehaviour
             transform.Translate(pc.pd.x * pc.pd.speed * Time.deltaTime, pc.pd.y * pc.pd.speed * Time.deltaTime, pc.pd.z * pc.pd.speed * Time.deltaTime);
         else
             transform.Translate(-pc.pd.x * pc.pd.speed * Time.deltaTime, -pc.pd.y * pc.pd.speed * Time.deltaTime, -pc.pd.z * pc.pd.speed * Time.deltaTime);
-
-        if (pc.moveInitial == true)
-        {
-
-        }
     }
 
     IEnumerator ChangeDirectionCoroutine()

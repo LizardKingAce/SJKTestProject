@@ -8,7 +8,7 @@ public class PrismsController : MonoBehaviour
     public PrismData pd = new PrismData();
 
     //flips patrol direction movement
-    [HideInInspector]
+    
     public bool moveInitial = true;
     [HideInInspector]
     public int lifeToSub = 1;
@@ -60,6 +60,7 @@ public class PrismsController : MonoBehaviour
             if (prism.prismID == "Purple Prism")
             {
                 pd.prismID = prism.prismID;
+                pd.rotationSpeed = prism.rotationSpeed;
                 pd.speed = prism.speed;
                 pd.x = prism.x;
                 pd.y = prism.y;

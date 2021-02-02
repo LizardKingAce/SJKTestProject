@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2790461492994929136}
   - component: {fileID: 2790461492994929137}
   - component: {fileID: 2790461492994929141}
+  - component: {fileID: 3280473411128080419}
   m_Layer: 0
   m_Name: Purple Prism
   m_TagString: Purple Prism
@@ -110,6 +111,7 @@ MonoBehaviour:
   pd:
     prismID: 
     speed: 0
+    rotationSpeed: 0
     x: 0
     y: 0
     z: 0
@@ -117,4 +119,19 @@ MonoBehaviour:
     g: 0
     b: 0
     a: 0
+  moveInitial: 1
   lifeToSub: 1
+--- !u!114 &3280473411128080419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2790461492994929138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39547d85b837ab34a99c94348522d8c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pc: {fileID: 2790461492994929141}
+  secondsToWait: 7
