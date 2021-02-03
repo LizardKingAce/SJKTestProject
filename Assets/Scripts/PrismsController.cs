@@ -16,7 +16,7 @@ public class PrismsController : MonoBehaviour
     void Start()
     {
         Prisms prismsInJson = JsonUtility.FromJson<Prisms>(jsonFile.text);
-
+       
         foreach (PrismData prism in prismsInJson.prisms)
         {
             if(prism.prismID == "Red Prism")
@@ -87,33 +87,3 @@ public class PrismsController : MonoBehaviour
         }
     }
 }
-
-   /*     if (this.gameObject.CompareTag("Red Prism") && transform.position.x >= patrol1x)
-        {
-    moveInitial = false;
-}
-
-        if (this.gameObject.CompareTag("Red Prism") && transform.position.x <= patrol2x)
-        {
-    moveInitial = true;
-}
-
-        if (this.gameObject.CompareTag("Green Prism") && transform.position.z >= patrol1z)
-        {
-    moveInitial = false;
-}
-
-        if (this.gameObject.CompareTag("Green Prism") && transform.position.z <= patrol2z)
-        {
-    moveInitial = true;
-}
-
-        if (this.gameObject.CompareTag("Purple Prism") && transform.position.y >= patrol1y)
-        {
-    moveInitial = false;
-}
-
-        if (this.gameObject.CompareTag("Purple Prism") && transform.position.y <= patrol2y)
-        {
-    moveInitial = true;
-} */

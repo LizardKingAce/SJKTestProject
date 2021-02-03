@@ -10,38 +10,40 @@ public class UIManagement : MonoBehaviour
     public PlayerHealth playerHealth;
     public Timer timer;
     public TextMeshProUGUI numLivesText;
-    public GameObject star1;
-    public GameObject star2;
-    public GameObject star3;
+
+    public int stars = 3;
+    public List<GameObject> starObjects;
 
     void Start()
     {
         Time.timeScale = 1;
-        //pausePanel.SetActive(false);
+
+        for (int i = 0; i < stars; i++)
+        {
+            Instantiate(starObjects[stars]);
+        }
     }
 
     void Update()
     {
         numLivesText.text = playerHealth.lives.ToString();
 
-        if (timer.timeCount >= 60)
+        if (timer.timeCount >= 180)
         {
-            Destroy(star1);
+            Destroy(starObjects[0]);
         }
-
-        if(timer.timeCount == 120)
+        else if (timer.timeCount >= 120)
         {
-            Destroy(star2);
+            Destroy(starObjects[1]);
         }
-
-        if(timer.timeCount == 180)
+        else if (timer.timeCount >= 60)
         {
-            Destroy(star3);
+            Destroy(starObjects[2]);
         }
     }
 }
 
-
+//List.Count
 
 /*public void PauseGame()
 {

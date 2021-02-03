@@ -5,17 +5,20 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public GameObject player;
-    private Vector3 offset;
+    public Vector3 offset;
+    public float sensitivity;
 
     private void Start()
     {
-        offset = transform.position;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void LateUpdate()
     {
-        transform.position = player.transform.position + offset;
+        //transform.position = player.transform.position + offset;
         //transform.LookAt(player.transform);
+        transform.position = player.transform.position + transform.forward * offset.z;
+        transform.RotateAround(player.transform.position, Vector3.up, Input.GetAxis("Mouse X") * sensitivity);
     }
 }
 
