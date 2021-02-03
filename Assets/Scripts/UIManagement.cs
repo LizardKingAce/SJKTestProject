@@ -6,13 +6,15 @@ using TMPro;
 
 public class UIManagement : MonoBehaviour
 {
-    //public GameObject pausePanel;
     public PlayerHealth playerHealth;
     public Timer timer;
     public TextMeshProUGUI numLivesText;
 
     public int stars = 3;
     public List<GameObject> starObjects;
+
+    public GameObject miniMapEndObject;
+    private float secondsToWait = .5f;
 
     void Start()
     {
@@ -22,6 +24,8 @@ public class UIManagement : MonoBehaviour
         {
             Instantiate(starObjects[stars]);
         }
+
+        StartCoroutine(BlinkOnGoalMesh());
     }
 
     void Update()
@@ -41,28 +45,18 @@ public class UIManagement : MonoBehaviour
             Destroy(starObjects[2]);
         }
     }
+
+    IEnumerator BlinkOnGoalMesh()
+    {
+        yield return new WaitForSeconds(secondsToWait);
+        miniMapEndObject.SetActive(true);
+        StartCoroutine(BlinkOffGoalMesh());
+    }
+
+    IEnumerator BlinkOffGoalMesh()
+    {
+        yield return new WaitForSeconds(secondsToWait);
+        miniMapEndObject.SetActive(false);
+        StartCoroutine(BlinkOnGoalMesh());
+    }
 }
-
-//List.Count
-
-/*public void PauseGame()
-{
-    if (Time.timeScale == 1)
-    {
-        Time.timeScale = 0;
-        //pausePanel.SetActive(true);
-    }
-    else if (Time.timeScale == 0)
-    {
-        Time.timeScale = 1;
-        //pausePanel.SetActive(false);
-    }
-
-    //in update
-            if (Input.GetKeyDown(KeyCode.P))
-        {
-            PauseGame();
-        }
-
-
-} */

@@ -11,6 +11,7 @@ public class Timer : MonoBehaviour
     public float timeCount;
 
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI endTimerText;
 
     private void Start()
     {
@@ -19,17 +20,16 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
-        if (timer)
+        if (timer == true)
         {
             timeCount += Time.deltaTime;
             DisplayTime(timeCount);
         }
-            /*else
-            {
-                //SceneManager.LoadScene("Final");
-                timeCount = 0;
-                timer = false;
-            } */
+        else
+        {
+            Time.timeScale = 0;
+            timer = false;
+        }
     }
 
     public void DisplayTime (float timeToDisplay)
@@ -38,5 +38,6 @@ public class Timer : MonoBehaviour
         float seconds = Mathf.FloorToInt(timeToDisplay % 60);
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+        endTimerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
 }
