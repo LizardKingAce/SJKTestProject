@@ -15,11 +15,9 @@ public class ButtonManager : MonoBehaviour
         SceneManager.LoadScene("Game Scene");
     }
 
-    private void Update()
+    public void Quit()
     {
-        if (Input.GetKey(KeyCode.R))
-        {
-            SceneManager.LoadScene("Game Scene");
-        }
+
+        Application.Quit();
     }
 }
