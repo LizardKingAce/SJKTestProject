@@ -8,9 +8,11 @@ public class WinCondition : MonoBehaviour
     public GameObject UIPanel;
     public Timer timer;
     public List<GameObject> endStars;
+    public bool winPanel = false;
 
     void Start()
     {
+        winPanel = false;
         UIPanel.SetActive(false);
     }
 
@@ -34,8 +36,11 @@ public class WinCondition : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Cursor.lockState = CursorLockMode.None;
             UIPanel.SetActive(true);
+            winPanel = true;
             timer.timer = false;
+            timer.CalculateNewHighscore();
         }
     }
 }

@@ -25,12 +25,8 @@ public class PlayerHealth : MonoBehaviour
 
         if(lives == 0)
         {
+            Cursor.lockState = CursorLockMode.None;
             losePanel.SetActive(true);
         }
-    }
-
-    public void RestartLevel()
-    {
-        //reset to start position
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class UIManagement : MonoBehaviour
@@ -13,9 +14,6 @@ public class UIManagement : MonoBehaviour
     public int stars = 3;
     public List<GameObject> starObjects;
 
-    public GameObject miniMapEndObject;
-    private float secondsToWait = .5f;
-
     void Start()
     {
         Time.timeScale = 1;
@@ -24,19 +22,17 @@ public class UIManagement : MonoBehaviour
         {
             Instantiate(starObjects[stars]);
         }
-
-        StartCoroutine(BlinkOnGoalMesh());
     }
 
     void Update()
     {
         numLivesText.text = playerHealth.lives.ToString();
 
-        if (timer.timeCount >= 180)
+        if (timer.timeCount >= 90)
         {
             Destroy(starObjects[0]);
         }
-        else if (timer.timeCount >= 120)
+        else if (timer.timeCount >= 75)
         {
             Destroy(starObjects[1]);
         }
@@ -44,19 +40,10 @@ public class UIManagement : MonoBehaviour
         {
             Destroy(starObjects[2]);
         }
-    }
 
-    IEnumerator BlinkOnGoalMesh()
-    {
-        yield return new WaitForSeconds(secondsToWait);
-        miniMapEndObject.SetActive(true);
-        StartCoroutine(BlinkOffGoalMesh());
-    }
-
-    IEnumerator BlinkOffGoalMesh()
-    {
-        yield return new WaitForSeconds(secondsToWait);
-        miniMapEndObject.SetActive(false);
-        StartCoroutine(BlinkOnGoalMesh());
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene("Game Scene");
+        }
     }
 }

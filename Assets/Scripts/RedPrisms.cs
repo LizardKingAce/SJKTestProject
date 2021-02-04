@@ -9,7 +9,15 @@ public class RedPrisms : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(ChangeDirectionCoroutine());
+        if(pc.moveInitial == true)
+        {
+            StartCoroutine(ChangeDirectionCoroutine());
+        }
+
+        if (pc.moveInitial == false)
+        {
+            StartCoroutine(RevertDirectionCoroutine());
+        }
     }
 
 

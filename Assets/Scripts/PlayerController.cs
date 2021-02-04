@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    //public CharacterController controller;
     public Rigidbody rb;
 
     public Transform cam;
@@ -35,7 +34,6 @@ public class PlayerController : MonoBehaviour
             Vector3 moveDirection = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             moveDirection.y = rb.velocity.y;
             rb.velocity = moveDirection.normalized * speed;
-            //controller.Move(moveDirection.normalized * speed * Time.deltaTime);
         }
     }
 }
