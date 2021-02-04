@@ -7,3 +7,7 @@ General movement notes: WASD to move, Mouse to orient camera
 The first time the game is run, Best Time shows up as Infinity until it has a time to store
 
 https://github.com/LizardKingAce/SJKTestProject/releases
+
+itch.io page to game application/build 
+
+https://acethelizardking.itch.io/sjk-project
